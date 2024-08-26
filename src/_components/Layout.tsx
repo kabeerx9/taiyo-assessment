@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+import { routes } from '../routes';
 import Sidebar from './navigation/Sidebar';
 
 function Layout() {
@@ -14,10 +15,7 @@ function Layout() {
 		setIsSidebarOpen(false);
 	};
 
-	const currentRoute =
-		location.pathname === '/'
-			? 'Home'
-			: location.pathname.slice(1).replace(/-/g, ' ');
+	const currentRoute = routes.find((route) => route.path === location.pathname);
 
 	return (
 		<div className="flex flex-col min-h-screen">
@@ -31,7 +29,7 @@ function Layout() {
 					</h1>
 				</div>
 				<div className="text-lg font-semibold text-blue-600 hidden md:block">
-					{currentRoute}
+					{currentRoute?.name || 'No route '}
 				</div>
 				<div className="text-blue-600">👤</div>
 			</header>
