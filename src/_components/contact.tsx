@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import {
 	addContact,
@@ -6,13 +6,13 @@ import {
 	removeContact,
 	updateContact,
 } from '../store/slices/contact-slice';
-import Button from '../components/ui/button';
 import ContactCard from './contacts/contact-card';
 import ContactForm from './contacts/contact-form';
 
 const ContactPage = () => {
 	const dispatch = useAppDispatch();
 	const contacts = useAppSelector((state) => state.contact.contacts);
+
 	const [showAddForm, setShowAddForm] = useState(false);
 	const [editingContact, setEditingContact] = useState<ContactType | null>(
 		null
@@ -34,11 +34,12 @@ const ContactPage = () => {
 
 	return (
 		<div className="container mx-auto px-4 py-8">
-			<h1 className="text-3xl font-bold mb-8">Contact Management</h1>
-			<div className="mb-8">
-				<Button onClick={() => setShowAddForm(!showAddForm)}>
-					{showAddForm ? 'Cancel' : 'Add New Contact'}
-				</Button>
+			<div className="mb-8 ">
+				<button
+					className="p-2 bg-black text-white text-2xl font-semibold rounded-lg"
+					onClick={() => setShowAddForm(!showAddForm)}>
+					{showAddForm ? 'Cancel' : 'Create Contact'}
+				</button>
 			</div>
 			{showAddForm && (
 				<div className="mb-8 bg-white p-6 rounded-lg shadow-md">
@@ -69,6 +70,16 @@ const ContactPage = () => {
 					/>
 				))}
 			</div>
+			{contacts.length === 0 && (
+				<div className="flex gap-2 items-center border-2 border-black rounded-lg ">
+					<div className="bg-black text-white p-4 rounded-full w-10 h-10 flex items-center justify-center">
+						✕
+					</div>
+					<div className="flex-grow text-2xl p-4 lg:text-4xl ">
+						No contacts found. Please add a contact.
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };
