@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-interface Contact {
+export interface Contact {
 	id: number;
 	firstName: string;
 	lastName: string;
+	details: string;
 	status: 'active' | 'inactive';
 }
 
