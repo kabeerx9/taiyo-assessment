@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Button from '../../components/ui/button';
-import { Contact } from '../../store/slices/contact-slice';
+import { ContactType } from '../../store/slices/contact-slice';
 
 interface ContactCardProps {
-	contact: Contact;
+	contact: ContactType;
 	onDelete: (id: number) => void;
-	onEdit: (contact: Contact) => void;
+	onEdit: (contact: ContactType) => void;
 }
 
 const ContactCard: React.FC<ContactCardProps> = ({

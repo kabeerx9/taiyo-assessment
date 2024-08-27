@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-export interface Contact {
+export interface ContactType {
 	id: number;
 	firstName: string;
 	lastName: string;
@@ -10,7 +10,7 @@ export interface Contact {
 }
 
 export interface ContactState {
-	contacts: Contact[];
+	contacts: ContactType[];
 }
 
 const initialState: ContactState = {
@@ -21,7 +21,7 @@ export const contactSlice = createSlice({
 	name: 'contact',
 	initialState,
 	reducers: {
-		addContact: (state, action: PayloadAction<Contact>) => {
+		addContact: (state, action: PayloadAction<ContactType>) => {
 			state.contacts.push(action.payload);
 		},
 		removeContact: (state, action: PayloadAction<number>) => {
@@ -29,7 +29,7 @@ export const contactSlice = createSlice({
 				(contact) => contact.id !== action.payload
 			);
 		},
-		updateContact: (state, action: PayloadAction<Contact>) => {
+		updateContact: (state, action: PayloadAction<ContactType>) => {
 			const index = state.contacts.findIndex(
 				(contact) => contact.id === action.payload.id
 			);

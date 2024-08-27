@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Button from '../../components/ui/button';
-import { Contact } from '../../store/slices/contact-slice';
+import { ContactType } from '../../store/slices/contact-slice';
 
 interface ContactFormProps {
-	onSubmit: (contact: Contact) => void;
+	onSubmit: (contact: ContactType) => void;
 	onCancel: () => void;
-	initialValues?: Contact;
+	initialValues?: ContactType;
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({

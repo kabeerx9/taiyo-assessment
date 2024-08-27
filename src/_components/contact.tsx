@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import {
 	addContact,
-	Contact,
+	ContactType,
 	removeContact,
 	updateContact,
 } from '../store/slices/contact-slice';
@@ -14,14 +14,16 @@ const ContactPage = () => {
 	const dispatch = useAppDispatch();
 	const contacts = useAppSelector((state) => state.contact.contacts);
 	const [showAddForm, setShowAddForm] = useState(false);
-	const [editingContact, setEditingContact] = useState<Contact | null>(null);
+	const [editingContact, setEditingContact] = useState<ContactType | null>(
+		null
+	);
 
-	const handleAddContact = (newContact: Contact) => {
+	const handleAddContact = (newContact: ContactType) => {
 		dispatch(addContact({ ...newContact, id: contacts.length + 1 }));
 		setShowAddForm(false);
 	};
 
-	const handleUpdateContact = (updatedContact: Contact) => {
+	const handleUpdateContact = (updatedContact: ContactType) => {
 		dispatch(updateContact(updatedContact));
 		setEditingContact(null);
 	};
