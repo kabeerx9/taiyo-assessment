@@ -27,7 +27,7 @@ const Home = (props: Props) => {
 			</div>
 		);
 
-	console.log(data);
+		
 
 	return (
 		<div className="w-full h-full">
