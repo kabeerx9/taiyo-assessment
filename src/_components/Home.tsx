@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Button from '../components/ui/button';
 
 type Props = {};
 
@@ -31,12 +32,13 @@ const Home = (props: Props) => {
 	return (
 		<div className="w-full h-full">
 			Hello welcome to the assignment done by kabeer
-			<button
+			<Button
+				variant="primary"
 				onClick={() => {
 					refetch();
 				}}>
 				Refetch data
-			</button>
+			</Button>
 		</div>
 	);
 };
