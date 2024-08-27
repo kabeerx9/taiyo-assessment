@@ -8,6 +8,7 @@ import {
 } from '../store/slices/contact-slice';
 import ContactCard from './contacts/contact-card';
 import ContactForm from './contacts/contact-form';
+import Button from '../components/ui/button';
 
 const ContactPage = () => {
 	const dispatch = useAppDispatch();
@@ -35,11 +36,10 @@ const ContactPage = () => {
 	return (
 		<div className="container mx-auto px-4 py-8">
 			<div className="mb-8 ">
-				<button
-					className="p-2 bg-black text-white text-2xl font-semibold rounded-lg"
-					onClick={() => setShowAddForm(!showAddForm)}>
+				<h1 className="text-2xl font-semibold mb-4">Contact Management</h1>
+				<Button variant="primary" onClick={() => setShowAddForm(!showAddForm)}>
 					{showAddForm ? 'Cancel' : 'Create Contact'}
-				</button>
+				</Button>
 			</div>
 			{showAddForm && (
 				<div className="mb-8 bg-white p-6 rounded-lg shadow-md">
