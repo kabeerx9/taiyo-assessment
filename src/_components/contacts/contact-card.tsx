@@ -4,7 +4,7 @@ import { ContactType } from '../../store/slices/contact-slice';
 
 interface ContactCardProps {
 	contact: ContactType;
-	onDelete: (id: number) => void;
+	onDelete: (id: string) => void;
 	onEdit: (contact: ContactType) => void;
 }
 
@@ -33,7 +33,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
 				</span>
 			</div>
 			<div
-				className={`overflow-hidden transition-all duration-300 ease-in-out ${
+				className={`overflow-hidden transition-all overflow-y-auto duration-300 mb-5 ease-in-out ${
 					showDetails ? 'max-h-40' : 'max-h-0'
 				}`}>
 				<p className="text-gray-600 mb-4">{contact.details}</p>

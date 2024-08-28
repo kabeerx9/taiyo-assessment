@@ -43,7 +43,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 		} else {
 			onSubmit({
 				...formData,
-				id: Math.floor(Math.random() * 1000),
+				id: crypto.randomUUID(),
 			});
 		}
 	};
