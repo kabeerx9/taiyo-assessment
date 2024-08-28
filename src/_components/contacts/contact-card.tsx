@@ -15,6 +15,8 @@ const ContactCard: React.FC<ContactCardProps> = ({
 }) => {
 	const [showDetails, setShowDetails] = useState(false);
 
+	console.log('Show details with conact id ', contact.id, 'is', showDetails);
+
 	return (
 		<div className="bg-white shadow-md rounded-lg p-6 transition-all duration-300 ease-in-out transform hover:scale-105">
 			<div className="flex justify-between items-center mb-4">
