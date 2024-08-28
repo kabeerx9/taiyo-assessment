@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 
-type Props = {};
+import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
+import { LatLngExpression } from 'leaflet';
 
 const COUNTRIES_DATA_API = 'https://disease.sh/v3/covid-19/countries';
 
-const CountrySpecificLeaflet = (props: Props) => {
+const CountrySpecificLeaflet = () => {
 	const fetchCountriesData = async () => {
 		const res = await fetch(COUNTRIES_DATA_API);
 
@@ -31,7 +32,22 @@ const CountrySpecificLeaflet = (props: Props) => {
 
 	console.log('Data is ', data);
 
-	return <div>LeafletData</div>;
+	return (
+		<div className="w-96 h-96">
+			{/* //@ts-ignore */}
+			<MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+				<TileLayer
+					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+				/>
+				<Marker position={[51.505, -0.09]}>
+					<Popup>
+						A pretty CSS3 popup. <br /> Easily customizable.
+					</Popup>
+				</Marker>
+			</MapContainer>
+		</div>
+	);
 };
 
 export default CountrySpecificLeaflet;
