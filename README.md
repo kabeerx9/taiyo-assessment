@@ -1,46 +1,96 @@
-# Getting Started with Create React App
+# Contact Management App with Charts and Maps
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a contact management application built with React, TypeScript, and TailwindCSS. It features a contact list management system and a dashboard displaying COVID-19 data using charts and maps.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Contact Management:
 
-### `npm start`
+  - Add new contacts
+  - View list of contacts
+  - View contact details
+  - Edit and delete contacts
+  - Redux state management for contacts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Dashboard:
+  - Line graph showing COVID-19 case fluctuations
+  - React Leaflet map with country-specific COVID-19 data
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+Before you begin, ensure you have the following installed:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (version 14 or later)
+- npm (usually comes with Node.js)
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```
+   git clone https://github.com/kabeerx9/taiyo-assignment.git
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navigate to the project directory:
 
-### `npm run eject`
+   ```
+   cd contact-management-app
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Install the dependencies:
+   ```
+   npm install
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Running the App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To start the development server, run:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+npm start
+```
 
-## Learn More
+The app will be available at `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Building for Production
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To create a production build, run:
+
+```
+npm run build
+```
+
+The build files will be created in the `build/` directory.
+
+## API Endpoints
+
+This app uses the following API endpoints:
+
+1. World-wide COVID-19 data:
+
+   - URL: https://disease.sh/v3/covid-19/all
+   - Used for: Line chart displaying global case fluctuations
+   - Configuration: Uses React Query with `staleTime: Infinity` as the data doesn't change frequently
+
+2. Country-specific COVID-19 data:
+   - URL: https://disease.sh/v3/covid-19/countries
+   - Used for: React Leaflet map markers showing country-specific data
+   - Configuration: Uses React Query with `staleTime: Infinity`
+
+## Technologies Used
+
+- React
+- TypeScript
+- TailwindCSS
+- React Router v6
+- React Query (TanStack Query)
+- Redux
+- React Leaflet
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
