@@ -3,15 +3,18 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
+// Import marker icons directly
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
 // Fix for default marker icon
-// Override the type of L.Icon.Default to add the _getIconUrl property
-(L.Icon.Default as any).prototype._getIconUrl = function (this: any, name: string): string {
-	return require('leaflet/dist/images/marker-icon.png').default;
-};
+delete (L.Icon.Default.prototype as any)._getIconUrl; // Ensure this property is deleted to prevent override errors.
+
 L.Icon.Default.mergeOptions({
-	iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-	iconUrl: require('leaflet/dist/images/marker-icon.png'),
-	shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+	iconRetinaUrl: markerIcon2x,
+	iconUrl: markerIcon,
+	shadowUrl: markerShadow,
 });
 
 const COUNTRIES_DATA_URL = 'https://disease.sh/v3/covid-19/countries';
