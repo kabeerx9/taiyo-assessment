@@ -18,7 +18,7 @@ function Layout() {
 	const currentRoute = routes.find((route) => route.path === location.pathname);
 
 	return (
-		<div className="flex flex-col min-h-screen">
+		<div className="flex flex-col h-screen">
 			<header className="bg-white shadow-md p-4 flex justify-between items-center">
 				<div className="flex items-center">
 					<button className="text-blue-600 lg:hidden" onClick={toggleSidebar}>
@@ -33,7 +33,7 @@ function Layout() {
 				</div>
 				<div className="text-blue-600">👤</div>
 			</header>
-			<div className="flex flex-grow">
+			<div className="flex flex-grow overflow-hidden">
 				<Sidebar isOpen={isSidebarOpen} closeSidebar={closeSidebar} />
 				<main className="flex-grow bg-gray-100 overflow-y-auto ">
 					<Outlet />
