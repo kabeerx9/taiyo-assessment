@@ -62,7 +62,10 @@ const CovidLineGraph = () => {
 	console.log('Data is ', data);
 
 	return (
-		<div className="border-2 border-black rounded-lg p-2 shadow-lg">
+		<div className="border-2 border-black rounded-lg p-2 shadow-lg z-10">
+			<h1 className="mb-5 text-lg lg:text-2xl text-center text-indigo-800 underline font-semibold">
+				Line graph showing Cases & Deaths over time.
+			</h1>
 			<ResponsiveContainer width="100%" height={400}>
 				<LineChart data={lineGraphData}>
 					<CartesianGrid strokeDasharray="3 3" />

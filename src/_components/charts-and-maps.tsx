@@ -7,11 +7,10 @@ type Props = {};
 
 const ChartsAndMaps = (props: Props) => {
 	return (
-		<div className="w-full h-full px-4">
-			<div className="text-center font-semibold text-xl">
-				Charts and Maps Page
-			</div>
+		<div className="w-full h-full px-4 bg-white">
 			<CovidLineGraph />
+
+			<div className="my-20" />
 			{/* <Temp /> */}
 			{/* The First api endpoint provided for all cases in the world , i have no
 			idea how to use it and what is the use as in the final deliverables it is

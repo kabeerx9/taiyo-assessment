@@ -73,26 +73,31 @@ const CountrySpecificLeaflet = () => {
 	}
 
 	return (
-		<MapContainer center={[20, 0]} zoom={2}>
-			<TileLayer
-				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-			/>
-			{countries?.map((country) => (
-				<Marker
-					key={country.country}
-					position={[country.countryInfo.lat, country.countryInfo.long]}>
-					<Popup>
-						<div>
-							<h3>{country.country}</h3>
-							<p>Active cases: {country.active}</p>
-							<p>Recovered: {country.recovered}</p>
-							<p>Deaths: {country.deaths}</p>
-						</div>
-					</Popup>
-				</Marker>
-			))}
-		</MapContainer>
+		<div className="border-2 border-black rounded-lg p-2 shadow-lg">
+			<h1 className="mb-5 text-lg lg:text-2xl text-center text-indigo-800 underline font-semibold">
+				Leaflet showing covid data for countries.
+			</h1>
+			<MapContainer center={[20, 0]} zoom={2}>
+				<TileLayer
+					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+				/>
+				{countries?.map((country) => (
+					<Marker
+						key={country.country}
+						position={[country.countryInfo.lat, country.countryInfo.long]}>
+						<Popup>
+							<div>
+								<h3>{country.country}</h3>
+								<p>Active cases: {country.active}</p>
+								<p>Recovered: {country.recovered}</p>
+								<p>Deaths: {country.deaths}</p>
+							</div>
+						</Popup>
+					</Marker>
+				))}
+			</MapContainer>
+		</div>
 	);
 };
 
