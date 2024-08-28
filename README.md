@@ -28,7 +28,7 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/kabeerx9/taiyo-assignment.git
+   git clone https://github.com/kabeerx9/taiyo-assessment.git
    ```
 
 2. Navigate to the project directory:
