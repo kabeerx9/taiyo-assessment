@@ -12,7 +12,7 @@ const ChartsAndMaps = (props: Props) => {
 				Charts and Maps Page
 			</div>
 			<CovidLineGraph />
-			<Temp />
+			{/* <Temp /> */}
 			{/* The First api endpoint provided for all cases in the world , i have no
 			idea how to use it and what is the use as in the final deliverables it is
 			not mentioned anywhere . So i have created a component , but not rendering
@@ -20,7 +20,7 @@ const ChartsAndMaps = (props: Props) => {
 			 */}
 			{/* <CovidStatsGraph /> */}
 
-			{/* <CountrySpecificLeaflet /> */}
+			<CountrySpecificLeaflet />
 		</div>
 	);
 };
