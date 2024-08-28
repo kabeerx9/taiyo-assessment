@@ -35,7 +35,7 @@ function Layout() {
 			</header>
 			<div className="flex flex-grow">
 				<Sidebar isOpen={isSidebarOpen} closeSidebar={closeSidebar} />
-				<main className="flex-grow bg-gray-100 p-4">
+				<main className="flex-grow bg-gray-100 overflow-y-auto ">
 					<Outlet />
 				</main>
 			</div>
