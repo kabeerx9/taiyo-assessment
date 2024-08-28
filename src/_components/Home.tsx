@@ -81,12 +81,12 @@ const Home = () => {
 
 				<div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
 					<Link
-						to="/contacts"
+						to="/contact"
 						className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors shadow-md">
 						Go to Contacts <ArrowRight className="ml-2" size={20} />
 					</Link>
 					<Link
-						to="/charts"
+						to="/charts-and-maps"
 						className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors shadow-md">
 						Go to Charts & Maps <ArrowRight className="ml-2" size={20} />
 					</Link>

@@ -1,7 +1,6 @@
 import CountrySpecificLeaflet from './charts-and-maps/country-specific-leaflet';
 import CovidLineGraph from './charts-and-maps/covid-line-graph';
 import CovidStatsGraph from './charts-and-maps/covid-stats-graph';
-import Temp from './charts-and-maps/temp';
 
 type Props = {};
 

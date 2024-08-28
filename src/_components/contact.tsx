@@ -34,7 +34,7 @@ const ContactPage = () => {
 	};
 
 	return (
-		<div className="container mx-auto px-4 py-8 bg-indigo-50 min-h-screen">
+		<div className="container px-4 py-8 bg-indigo-50 h-full">
 			<div className="mb-8 flex justify-between items-center">
 				<h1 className="text-3xl font-bold text-indigo-900">
 					Contact Management

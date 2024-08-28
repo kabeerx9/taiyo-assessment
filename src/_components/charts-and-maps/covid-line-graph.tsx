@@ -9,6 +9,7 @@ import {
 	XAxis,
 	YAxis,
 } from 'recharts';
+import { LineChartSkeleton } from '../shimmer/line-chart-shimmer';
 
 interface HistoricalDataProps {
 	cases: Record<string, number>;
@@ -17,6 +18,53 @@ interface HistoricalDataProps {
 
 const CASES_WITH_DATE_API =
 	'https://disease.sh/v3/covid-19/historical/all?lastdays=all';
+
+interface LineGraphProps {
+	lineGraphData: {
+		date: string;
+		cases: number;
+		deaths: number;
+	}[];
+}
+
+const LineGraph = ({ lineGraphData }: LineGraphProps) => {
+	return (
+		<>
+			<h1 className="mb-5 text-lg lg:text-2xl text-center text-indigo-800 underline font-semibold">
+				Line graph showing Cases & Deaths over time.
+			</h1>
+			<ResponsiveContainer width="100%" height={400}>
+				<LineChart data={lineGraphData}>
+					<CartesianGrid strokeDasharray="3 3" />
+					<XAxis dataKey="date" />
+					<YAxis
+						tickFormatter={(value) => {
+							return value / 1000000 + 'M';
+						}}
+					/>
+					<Tooltip />
+					<Legend />
+					<Line
+						type="monotone"
+						dataKey="cases"
+						stroke="#8884d8"
+						name="Cases"
+						dot={false}
+						strokeWidth={2}
+					/>
+					<Line
+						type="monotone"
+						dataKey="deaths"
+						stroke="#82ca9d"
+						name="Deaths"
+						dot={false}
+						strokeWidth={2}
+					/>
+				</LineChart>
+			</ResponsiveContainer>
+		</>
+	);
+};
 
 const CovidLineGraph = () => {
 	const fetchHistoricalData = async () => {
@@ -50,51 +98,17 @@ const CovidLineGraph = () => {
 
 	const lineGraphData = processData();
 
-	if (isLoading) {
-		return (
-			<div className="w-full h-full flex items-center justify-center text-2xl">
-				Loading..
-			</div>
-		);
-	}
 	if (error) return <div>An error occurred</div>;
 
 	console.log('Data is ', data);
 
 	return (
 		<div className="border-2 border-black rounded-lg p-2 shadow-lg z-10">
-			<h1 className="mb-5 text-lg lg:text-2xl text-center text-indigo-800 underline font-semibold">
-				Line graph showing Cases & Deaths over time.
-			</h1>
-			<ResponsiveContainer width="100%" height={400}>
-				<LineChart data={lineGraphData}>
-					<CartesianGrid strokeDasharray="3 3" />
-					<XAxis dataKey="date" />
-					<YAxis
-						tickFormatter={(value) => {
-							return value / 1000000 + 'M';
-						}}
-					/>
-					<Tooltip />
-					<Legend />
-					<Line
-						type="monotone"
-						dataKey="cases"
-						stroke="#8884d8"
-						name="Cases"
-						dot={false}
-						strokeWidth={2}
-					/>
-					<Line
-						type="monotone"
-						dataKey="deaths"
-						stroke="#82ca9d"
-						name="Deaths"
-						dot={false}
-						strokeWidth={2}
-					/>
-				</LineChart>
-			</ResponsiveContainer>
+			{isLoading ? (
+				<LineChartSkeleton />
+			) : (
+				<LineGraph lineGraphData={lineGraphData} />
+			)}
 		</div>
 	);
 };
